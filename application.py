@@ -1,16 +1,20 @@
 from flask import Flask, render_template, request
 
 app = Flask(__name__)  #turn the current file to application
-@app.route("/")        #gives the route of the application
-                       #@ is a python decorator
+
+#gives the route of the application
+#@ is a python decorator
+#default is GET
+
+@app.route("/", methods = ["GET", "POST"] )                         
 def index():
-    return render_template("index.html")
+    if request.method == "GET":
+        return render_template("index.html")
+    elif request.method == "POST":
+        return render_template("greet.html", name=request.form.get("name","world"))
         #flask parses the url(?name=David) and return the name
         #2nd argument to get is the default argument
 
-@app.route("/greet",methods=["POST"]) #default is GET
-def greet():
-    return render_template("greet.html", name=request.form.get("name","world"))
     
     #request.args.get to parse url when method="GET"
     #request.form.get to parse url when method="POST"
