@@ -8,6 +8,9 @@ def index():
         #flask parses the url(?name=David) and return the name
         #2nd argument to get is the default argument
 
-@app.route("/greet")
+@app.route("/greet",methods=["POST"]) #default is GET
 def greet():
-    return render_template("greet.html", name=request.args.get("name","world"))
+    return render_template("greet.html", name=request.form.get("name","world"))
+    
+    #request.args.get to parse url when method="GET"
+    #request.form.get to parse url when method="POST"

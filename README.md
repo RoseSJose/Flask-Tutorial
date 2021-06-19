@@ -1,6 +1,11 @@
 # Flask-Tutorial
 Project made to learn flask
 
+##Run the application
+```export FLASK_APP=application
+    export FLASK_ENV=development
+    flask run```
+    
 To install flask
 ```pip install flask```
 
