@@ -13,4 +13,7 @@ export FLASK_ENV=development
 ```
 ```
 flask run
+```
 
+##### Application 
+A small web app that accepts your name in a form and greets hello.
