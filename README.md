@@ -19,4 +19,8 @@ flask run
 A small web app that accepts your name in a form and greets hello.
 
 #### Registration
-A web app that registers you for a sport, stores the details in a database and displays all the applicants,
+A web app that registers you for a sport, stores the details in a database and displays all the applicants.
+
+#### Sessions
+A login application with cookies. \
+The cookies remembers the login identity till you logout.
