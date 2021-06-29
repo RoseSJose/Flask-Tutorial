@@ -36,8 +36,8 @@ def index():
     
 @app.route("/register", methods=["POST"])
 def register():
-    #dbconn = psycopg2.connect(dbname = 'registration')
-    #cursor = dbconn.cursor()
+    dbconn = psycopg2.connect(dbname = 'registration')
+    cursor = dbconn.cursor()
     name = request.form.get("email")
     if not name:
         return render_template("error.html", msg = "Missing Name")
@@ -50,8 +50,8 @@ def register():
     cursor.execute("INSERT INTO registrants(name , sport) VALUES (%s, %s)",(name, sport));
     cursor.close()
     dbconn.commit()
-    message = Message("You are registed", recipients=[name])
-    mail.send(message)
+    #message = Message("You are registed", recipients=[name])
+    #mail.send(message)
     return redirect("/registrants")
     
 @app.route("/registrants")
